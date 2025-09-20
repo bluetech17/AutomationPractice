@@ -1,0 +1,19 @@
+const { longWait, shortWait } = require('generac.application.automation.common/data-containers/waits')
+const TagHelperFile = require('../helpers/tagHelper')
+let Tag = new TagHelperFile()
+
+const LoginCommands = {
+    login: function(email, password){
+        this
+            .waitForElementVisible('@emailField', longWait, 'login page loaded')
+            .setValue("@emailField", email)
+            .click('@submitButton');
+
+        this
+            .waitForElementVisible('@passwordField', shortWait, 'password loaded')
+            .setValue('@passwordField', password)
+            .click('@signInButton');
+
+        this
+    }
+}

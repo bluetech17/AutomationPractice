@@ -1,0 +1,36 @@
+describe('Login Happy Path', function () {
+    //this.tags = ['login', '400', '400-1', 'TC-6189', 'TRc-12413'];
+
+    before(() => {
+        login = Pages.loginPage();
+        browser.globals.sendTestRailReport = false;
+    });
+
+    specify('Preconditions', function (browser) {
+        browser.url(MobileLinkHome)
+        login.waitForElementVisible('@emailField', longWait)
+        browser.assert.urlEquals('https://app.staging.mobilelinkgen.com/');
+    });
+
+    test('Test Step 1', function (browser) {
+        login
+            .waitForElementVisible('@emailField', longWait, 'login page loaded')
+            .setValue("@emailField", Username)
+            .click('@submitButton');
+        login.waitForElementVisible('@passwordField', shortWait, 'password field appears');
+
+    })
+
+    test('Test Step 2', function (browser) {
+        login
+            .waitForElementVisible('@passwordField', shortWait, 'password loaded')
+            .setValue('@passwordField', Password)
+            .click('@signInButton');
+        login.waitForElementVisible('@captchaButton', longWait, 'captcha visible');
+    })
+
+    test('Test Step 3', function (browser) {
+        login.click('@captchaButton');
+        browser.waitForElementVisible(Tag.Hook('NavBar'), longWait, 'captcha visible');
+    })
+})

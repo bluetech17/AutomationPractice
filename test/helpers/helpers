@@ -1,0 +1,33 @@
+/**
+ * Tag Helper: Provides Tags for Nightwatch Selectors
+ * @module Helpers/TagHelper
+ */
+
+module.exports = class tagHelper {
+    constructor() { }
+
+    Hook(tag) {
+        return `*[data-test-hook="${tag}"]`;
+    }
+   Qa(tag) {
+        return `*[data-qa="${tag}"]`;
+   }
+   OptionValue(tag) {
+        return `option[value="${tag}"]`;
+   }
+    Text(tag) {
+        return `//*[contains(text(), "${tag}")]`; //searches for specific text. Must be done with XPath
+    }
+
+    Class(tag) {
+        return `*[class="${tag}"]`;
+    }
+
+    Id(tag) {
+        return `*[id="${tag}"]`;
+    }
+
+    Custom(att, tag) {
+        return `*[${att}="${tag}"]`;
+    }
+};
