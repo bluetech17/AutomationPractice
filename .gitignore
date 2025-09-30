@@ -1,0 +1,24 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+.DS_Store
+
+# Nightwatch
+reports/
+tests_output/
+test_output/
+screens/
+
+
+# Logs
+logs/
+*.log
+
+# OS files
+Thumbs.db
+.idea/
+.vscode/
+*.swp
