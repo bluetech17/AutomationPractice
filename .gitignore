@@ -5,12 +5,13 @@ yarn-debug.log*
 yarn-error.log*
 .env
 .DS_Store
+.package-lock.json
 
 # Nightwatch
-reports/
-tests_output/
-test_output/
-screens/
+reports/*
+tests_output/*
+test_output/*
+screens/*
 
 
 # Logs
