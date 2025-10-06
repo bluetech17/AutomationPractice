@@ -1,5 +1,5 @@
 const { collapseTextChangeRangesAcrossMultipleVersions } = require('typescript')
-const TagHelperFile = require('../helpers/tagHelper')
+const TagHelperFile = require('../../test/helpers/helpers')
 let Tag = new TagHelperFile()
 //const { longWait, shortWait } = require('generac.application.automation.common/data-containers/waits');
 
@@ -26,7 +26,9 @@ let Tag = new TagHelperFile()
             .click('@createAccountBtn');
 
        return this;
-    }
+     },
+     
+
     };
 
 module.exports = {
@@ -49,4 +51,3 @@ module.exports = {
     commands: [SignUpCommands]
 };
 
-   

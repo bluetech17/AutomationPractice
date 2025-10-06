@@ -30,4 +30,14 @@ module.exports = class tagHelper {
     Custom(att, tag) {
         return `*[${att}="${tag}"]`;
     }
+
+    Text(tag, text) {
+       return `//${tag}[text()="${text}"]`;
+}
+
+
+  // For selecting when there might be nested tags inside (like <p><b>...</b> In Stock</p>)
+  ContainsText(tag, text) {
+    return `//${tag}[contains(., "${text}")]`;
+  }
 };
