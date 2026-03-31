@@ -1,6 +1,8 @@
-const { longWait, shortWait } = require('generac.application.automation.common/data-containers/waits')
-const TagHelperFile = require('../helpers/tagHelper')
+const TagHelperFile = require('../../helpers/helpers/helpers')
 let Tag = new TagHelperFile()
+
+const longWait = 10000;
+const shortWait = 5000;
 
 const LoginCommands = {
     login: function(email, password){

@@ -1,11 +1,12 @@
 const { collapseTextChangeRangesAcrossMultipleVersions } = require('typescript')
-const TagHelperFile = require('../../test/helpers/helpers')
+const TagHelperFile = require('../../helpers/helpers/helpers');
 let Tag = new TagHelperFile()
 
 
  const ProductsCommands = {
     addToCart: function() {
         this
+             .execute(function() { window.scrollTo(0, 10000); }, [])
             .waitForElementVisible('@addToCartBtn', 5000, 'the cart button is visible')
             .click('@addToCartBtn');
        return this;
@@ -13,9 +14,10 @@ let Tag = new TagHelperFile()
      
      viewProductDetails: function() {
         this
+            .execute(function() { window.scrollTo(0, 10000); }, [])
             .waitForElementVisible('@viewFirstProductBtn', 10000, 'the button of first product is found')
             .click('@viewFirstProductBtn')
-          //  browser.assert.urlEquals('https://www.automationexercise.com/product_details/1')
+            .execute(function() { window.scrollTo(0, 5000); }, [])
             .waitForElementPresent('@ladysBlueTop', 5000, 'blue product name is present')
             .waitForElementPresent('@topCategory', 5000, 'category is present')
             .waitForElementPresent('@topPrice', 5000, 'price is at 500')

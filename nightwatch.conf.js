@@ -13,10 +13,10 @@
 const chromedriver = require('chromedriver');
 
 module.exports = {
-  src_folders: ['test', 'nightwatch/examples', 'tests'],
-  page_objects_path: ['nightwatch/Pages'],
-  custom_commands_path: ['nightwatch/custom-commands'],
-  custom_assertions_path: ['nightwatch/custom-assertions'],
+  src_folders: ['tests'],
+  page_objects_path: ['src/page-objects'],
+  custom_commands_path: ['nightwatch/commands'],
+  custom_assertions_path: ['nightwatch/assertions'],
   plugins: [],
   globals_path: 'globals.js',
 

@@ -1,4 +1,4 @@
-const helpers = require('./test/helpers/helpers');
+const helpers = require('./helpers/helpers/helpers');
 
 module.exports = {
   helpers

@@ -1,14 +1,17 @@
 const { collapseTextChangeRangesAcrossMultipleVersions } = require('typescript')
-const TagHelperFile = require('../../test/helpers/helpers')
+const TagHelperFile = require('../../helpers/helpers/helpers');
 let Tag = new TagHelperFile()
-//const { longWait, shortWait } = require('generac.application.automation.common/data-containers/waits');
+
 
  const SignUpCommands = {
     signUp: function(name, email, password, firstName, lastName, address, country, unitedStates, state, city, zipcode, mobileNumber) {
         this
+           // .waitForElementNotPresent('iframe[id^="aswift_"]', 10000)
             .waitForElementVisible('@nameField', 5000, 'name field is visible')
             .setValue('@nameField', name)
             .setValue('@emailField', email)
+            .execute(function() { window.scrollTo(0, 500); }, [])
+            .scrollIntoView('@signUpBtn')
             .click('@signUpBtn');
 
         this
@@ -17,20 +20,20 @@ let Tag = new TagHelperFile()
             .setValue('@firstNameField', firstName)
             .setValue('@lastNameField', lastName)
             .setValue('@addressField', address)
+            .execute(function() { window.scrollTo(0, 1000); }, [])
             .click('@countryField')
             .click('@countryUnitedField')
             .setValue('@stateField', state)
             .setValue('@cityField', city)
             .setValue('@zipCodeField', zipcode)
+            .execute(function() { window.scrollTo(0, 500); }, [])
             .setValue('@mobileNumberField', mobileNumber)
             .click('@createAccountBtn');
 
        return this;
      },
+ };
      
-
-    };
-
 module.exports = {
     elements: {
         nameField: Tag.Qa('signup-name'),

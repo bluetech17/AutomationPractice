@@ -15,7 +15,7 @@ describe('View Product Detials', function () {
     });   
     it('Command tests', function (browser) {
        products.viewProductDetails()
-
+    
 
     })
 

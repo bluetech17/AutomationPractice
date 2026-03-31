@@ -1,5 +1,5 @@
 const { collapseTextChangeRangesAcrossMultipleVersions } = require('typescript')
-const TagHelperFile = require('../../test/helpers/helpers')
+const TagHelperFile = require('../../helpers/helpers/helpers');
 let Tag = new TagHelperFile()
 //const { longWait, shortWait } = require('generac.application.automation.common/data-containers/waits');
 
@@ -11,6 +11,7 @@ let Tag = new TagHelperFile()
             .setValue('@emailFormField', email)
             .setValue('@subjectFormField', subject)
             .setValue('@messageFormField', message)
+            .execute(function() { window.scrollTo(0, 500); }, [])
             .click('@submitBtn')
             .waitForElementVisible('@successMsg', 5000, 'success message is visible');
 
